@@ -21,7 +21,7 @@ function Navigation() {
             <a href="">Contact</a>
           </li>
         </ul>
-        <button>Login</button>
+        <button className="nav-btn">Login</button>
       </nav>
     </div>
   );

@@ -52,7 +52,8 @@ button {
   justify-content: space-between;
   /* background: red; */
   height: calc(100vh - 72px);
-  padding-left: 20px;
+  /* padding-left: 20px; */
+  padding: 20px;
 }
 .hero-content {
   display: flex;
@@ -91,4 +92,72 @@ button {
 .brand-icons {
   display: flex;
   gap: 20px;
+}
+@media screen and (max-width: 886px) {
+  nav {
+    /* background: red; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  nav ul {
+    display: none;
+  }
+  .nav-btn {
+    padding: 6px 10px;
+    font-size: 20px;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-top: 8vh;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 60px;
+    line-height: 60px;
+    text-align: center;
+  }
+  .hero p {
+    text-align: center;
+    max-width: 100%;
+  }
+  .hero-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+  .hero-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* background: red; */
+  }
+  .hero-img img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .hero h1 {
+    font-size: 70px;
+    line-height: 70px;
+    /* background: red; */
+  }
+  .hero-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-img img {
+    width: 100%;
+    height: auto;
+  }
 }
