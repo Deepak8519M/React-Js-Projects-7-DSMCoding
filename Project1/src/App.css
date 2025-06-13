@@ -92,6 +92,7 @@ button {
 .brand-icons {
   display: flex;
   gap: 20px;
+  margin-top: 20px;
 }
 @media screen and (max-width: 886px) {
   nav {
