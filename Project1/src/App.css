@@ -49,8 +49,10 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   align-items: center;
+  justify-content: space-between;
   /* background: red; */
   height: calc(100vh - 72px);
+  padding-left: 20px;
 }
 .hero-content {
   display: flex;
