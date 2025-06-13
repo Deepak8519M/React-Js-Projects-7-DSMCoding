@@ -12,18 +12,24 @@ function Hero() {
         </p>
         <div className="hero-btn">
           <button>Shop Now</button>
-          <button>Category</button>
+          <button className="secondary-btn">Category</button>
         </div>
         <div className="shopping">
           Also Available On
           <div className="brand-icons">
-            <img src="" alt="" />
-            <img src="" alt="" />
+            <img
+              src="http://localhost:5174/images/amazon.png"
+              alt="amazon-logo"
+            />
+            <img
+              src="http://localhost:5174/images/flipkart.png"
+              alt="flipkart-logo"
+            />
           </div>
         </div>
       </div>
       <div className="hero-img">
-        <img src="" alt="" />
+        <img src="http://localhost:5174/images/hero-image.png" alt="" />
       </div>
     </main>
   );
