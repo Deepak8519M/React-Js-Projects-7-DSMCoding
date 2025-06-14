@@ -18,19 +18,3 @@ body {
   /* background: red; */
   margin: 0 auto;
 }
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-ul {
-  display: flex;
-  gap: 24px;
-}
-ul li {
-  list-style: none;
-}
-ul li a {
-  text-decoration: none;
-  color: rgb(18, 16, 16);
-}

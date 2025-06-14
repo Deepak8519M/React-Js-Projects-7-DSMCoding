@@ -1,0 +1,19 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation ul {
+  display: flex;
+  gap: 24px;
+}
+.navigation ul li {
+  list-style: none;
+}
+.navigation ul li a {
+  text-decoration: none;
+  color: rgb(18, 16, 16);
+}
+.navigation ul li a:hover {
+  color: rgb(0, 0, 0);
+}
