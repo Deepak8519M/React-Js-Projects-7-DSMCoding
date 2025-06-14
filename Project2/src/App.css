@@ -25,3 +25,38 @@ body {
   height: calc(100vh - 72px);
   flex-direction: column;
 }
+.output {
+  background: white;
+  /* padding: 10px; */
+  color: white;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all ease-in 3s;
+
+  justify-content: space-between;
+
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  right: 10px;
+  /* background: red; */
+}
+.output p:hover {
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+  transition: all ease-in 0.3s;
+  padding: 10px;
+}
+.output p {
+  background: black;
+  border: 1px solid transparent;
+  cursor: pointer;
+  height: 100%;
+  padding: 10px;
+  max-width: 320px;
+  transition: all ease-in 0.3s;
+  text-align: justify;
+}

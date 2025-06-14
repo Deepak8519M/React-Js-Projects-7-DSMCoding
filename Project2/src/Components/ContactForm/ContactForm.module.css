@@ -35,7 +35,11 @@
   top: -12px;
   left: 10px;
   background: white;
-  padding: 0 10px;
+  padding: 0 7px;
   font-size: 14px;
   position: absolute;
+}
+.form_control textarea {
+  padding: 30px 20px;
+  font-size: 20px;
 }

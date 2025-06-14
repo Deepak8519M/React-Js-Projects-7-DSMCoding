@@ -6,7 +6,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 function ContactForm() {
-  const [name, setName] = useState("hello");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
 
@@ -43,7 +43,11 @@ function ContactForm() {
             <Button text="SUBMIT BUTTON" />
           </div>
 
-          <div>{`${name} ${email} ${text}`}</div>
+          <div className="output">
+            <p>{name}</p>
+            <p>{email}</p>
+            <p>{text}</p>
+          </div>
         </form>
       </div>
       <div className={styles.contact_image}>
