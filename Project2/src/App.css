@@ -18,3 +18,10 @@ body {
   /* background: red; */
   margin: 0 auto;
 }
+
+.main_container {
+  justify-content: center;
+  display: flex;
+  height: calc(100vh - 72px);
+  flex-direction: column;
+}
