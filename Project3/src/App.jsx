@@ -1,9 +1,12 @@
-import React from "react";
-
-
+import styled from "styled-components";
+import StartGame from "./components/StartGame";
 
 function App() {
-  return <div></div>;
+  return (
+    <>
+      <StartGame />
+    </>
+  );
 }
 
 export default App;
