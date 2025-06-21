@@ -3,12 +3,15 @@ import TotalScore from "./TotalScore";
 import NumberSelector from "./NumberSelector";
 import RollDice from "./RollDice";
 import { useState } from "react";
+import { Button, OutlineButton } from "../styled/Button";
+import Rules from "./Rules";
 
 function GamePlay() {
   const [score, setScore] = useState(0);
   const [selectedNumber, setSelectedNumber] = useState();
   const [currentDice, setCurrentDice] = useState(1);
   const [error, setError] = useState("");
+  const [showRules, setShowRules] = useState(false);
 
   const generateRandomNumber = (min, max) => {
     // console.log(Math.floor(Math.random() * (max - min) + min));
@@ -35,6 +38,10 @@ function GamePlay() {
     setSelectedNumber(undefined);
   };
 
+  const resetScore = () => {
+    setScore(0);
+  };
+
   return (
     <MainContainer>
       <div className="top_section">
@@ -48,9 +55,13 @@ function GamePlay() {
       </div>
       <RollDice currentDice={currentDice} roleDice={roleDice} />
       <div className="btns">
-        <Button>Reset</Button>
-        <Button></Button>
+        <OutlineButton onClick={resetScore}>Reset</OutlineButton>
+        <Button onClick={() => setShowRules((prev) => !prev)}>
+          {" "}
+          {showRules ? "Hide Rules" : "Show Rules"}{" "}
+        </Button>
       </div>
+      {showRules && <Rules />}
     </MainContainer>
   );
 }
@@ -67,5 +78,15 @@ const MainContainer = styled.main`
     /* background-color: rebeccapurple; */
     max-width: 1180px;
     margin: 0 auto;
+  }
+
+  .btns {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 10px;
+    align-items: center;
   }
 `;
