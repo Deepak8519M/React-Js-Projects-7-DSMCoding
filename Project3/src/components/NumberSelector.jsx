@@ -1,17 +1,28 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-function NumberSelector({ selectedNumber, setSelectedNumber }) {
+function NumberSelector({
+  selectedNumber,
+  setSelectedNumber,
+  error,
+  setError,
+}) {
   const arrayNumber = [1, 2, 3, 4, 5, 6];
+
+  const numberSelectorHandler = (value) => {
+    setSelectedNumber(value);
+    setError("");
+  };
 
   console.log(selectedNumber);
   return (
-    <NumberSelectorContainer>
+    <NumberSelectorContainer hasError={!!error}>
+      <p className="error">{error}</p>
       <div className="flex">
         {arrayNumber.map((value, i) => (
           <Box
             isSelected={value === selectedNumber}
-            onClick={() => setSelectedNumber(value)}
+            onClick={() => numberSelectorHandler(value)}
             key={i}
           >
             {value}
@@ -26,6 +37,35 @@ function NumberSelector({ selectedNumber, setSelectedNumber }) {
 export default NumberSelector;
 
 const NumberSelectorContainer = styled.div`
+  .error {
+    /* margin-bottom: 10px; */
+    color: red;
+    // Only show blinking animation if there is an error
+    animation: ${({ hasError }) =>
+      hasError ? "blink 1s step-start 0s infinite" : "none"};
+
+    // Only show full opacity if error exists
+    opacity: ${({ hasError }) => (hasError ? 1 : 0)};
+
+    // Makes fade-in/fade-out smooth
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  @keyframes blink {
+    25% {
+      color: red;
+    }
+    50% {
+      opacity: 0;
+    }
+    75% {
+      color: blue;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   display: flex;
   flex-direction: column;
   align-items: end;

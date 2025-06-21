@@ -2,17 +2,7 @@ import styled from "styled-components";
 
 import { useState } from "react";
 
-function RollDice({ currentDice, setCurrentDice }) {
-  const generateRandomNumber = (min, max) => {
-    // console.log(Math.floor(Math.random() * (max - min) + min));
-    return Math.floor(Math.random() * (max - min) + min);
-  };
-
-  const roleDice = () => {
-    const randomNumber = generateRandomNumber(1, 7);
-
-    setCurrentDice((prev) => randomNumber);
-  };
+function RollDice({ currentDice, roleDice }) {
   return (
     <DiceContainer>
       <div className="dice" onClick={roleDice}>
@@ -34,7 +24,12 @@ const DiceContainer = styled.div`
 
   .dice {
     cursor: pointer;
+    /* background-color: red; */
   }
+
+  /* .dice img {
+    width: 290px;
+  } */
   p {
     font-size: 24px;
   }
