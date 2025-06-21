@@ -47,6 +47,10 @@ function GamePlay() {
         />
       </div>
       <RollDice currentDice={currentDice} roleDice={roleDice} />
+      <div className="btns">
+        <Button>Reset</Button>
+        <Button></Button>
+      </div>
     </MainContainer>
   );
 }
