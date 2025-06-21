@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 import { useState } from "react";
 
-function RollDice() {
-  const [currentDice, setCurrentDice] = useState();
-
+function RollDice({ currentDice, setCurrentDice }) {
   const generateRandomNumber = (min, max) => {
     // console.log(Math.floor(Math.random() * (max - min) + min));
     return Math.floor(Math.random() * (max - min) + min);
@@ -18,7 +16,7 @@ function RollDice() {
   return (
     <DiceContainer>
       <div className="dice" onClick={roleDice}>
-        <img src="/images/dice_1.png" alt="dice1" />
+        <img src={`/images/dice_${currentDice}.png`} alt="dice1" />
       </div>
       <p>Click on Dice to Roll</p>
     </DiceContainer>

@@ -2,15 +2,21 @@ import styled from "styled-components";
 import TotalScore from "./TotalScore";
 import NumberSelector from "./NumberSelector";
 import RollDice from "./RollDice";
+import { useState } from "react";
 
 function GamePlay() {
+  const [selectedNumber, setSelectedNumber] = useState(1);
+  const [currentDice, setCurrentDice] = useState(1);
   return (
     <MainContainer>
       <div className="top_section">
         <TotalScore />
-        <NumberSelector />
+        <NumberSelector
+          selectedNumber={selectedNumber}
+          setSelectedNumber={setSelectedNumber}
+        />
       </div>
-      <RollDice />
+      <RollDice currentDice={currentDice} setCurrentDice={setCurrentDice} />
     </MainContainer>
   );
 }
@@ -24,7 +30,7 @@ const MainContainer = styled.main`
     display: flex;
     justify-content: space-between;
     align-items: end;
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
     max-width: 1180px;
     margin: 0 auto;
   }
