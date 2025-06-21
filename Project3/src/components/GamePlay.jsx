@@ -1,7 +1,11 @@
-import React from "react";
+import styled from "styled-components";
 
 function GamePlay() {
-  return <div>GamePlay</div>;
+  return (
+    <main>
+      
+    </main>
+  );
 }
 
 export default GamePlay;
