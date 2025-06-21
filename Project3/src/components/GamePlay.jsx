@@ -20,12 +20,12 @@ export default GamePlay;
 const MainContainer = styled.main`
   padding-top: 20px;
 
-  max-width: 1180px;
-  margin: 0 auto;
   .top_section {
     display: flex;
     justify-content: space-between;
     align-items: end;
     background-color: rebeccapurple;
+    max-width: 1180px;
+    margin: 0 auto;
   }
 `;
