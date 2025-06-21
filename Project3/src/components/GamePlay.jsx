@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import TotalScore from "./TotalScore";
 import NumberSelector from "./NumberSelector";
+import RollDice from "./RollDice";
 
 function GamePlay() {
   return (
@@ -9,6 +10,7 @@ function GamePlay() {
         <TotalScore />
         <NumberSelector />
       </div>
+      <RollDice />
     </MainContainer>
   );
 }
@@ -16,6 +18,8 @@ function GamePlay() {
 export default GamePlay;
 
 const MainContainer = styled.main`
+  padding-top: 20px;
+
   max-width: 1180px;
   margin: 0 auto;
   .top_section {
