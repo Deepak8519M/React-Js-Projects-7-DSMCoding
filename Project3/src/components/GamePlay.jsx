@@ -6,8 +6,9 @@ import { useState } from "react";
 import { Button, OutlineButton } from "../styled/Button";
 import Rules from "./Rules";
 
-function GamePlay() {
+function GamePlay({ toggle }) {
   const [score, setScore] = useState(0);
+
   const [selectedNumber, setSelectedNumber] = useState();
   const [currentDice, setCurrentDice] = useState(1);
   const [error, setError] = useState("");
@@ -60,6 +61,7 @@ function GamePlay() {
           {" "}
           {showRules ? "Hide Rules" : "Show Rules"}{" "}
         </Button>
+        <Button onClick={toggle}>Back to Main</Button>
       </div>
       {showRules && <Rules />}
     </MainContainer>

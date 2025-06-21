@@ -39,4 +39,7 @@ const RulesContainer = styled.div`
   .text {
     margin-top: 24px;
   }
+  .text p {
+    font-size: 18px;
+  }
 `;

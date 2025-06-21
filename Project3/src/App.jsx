@@ -10,7 +10,13 @@ function App() {
     setIsGameStarted((prev) => !prev);
   };
   return (
-    <>{isGameStarted ? <GamePlay /> : <StartGame toggle={toggleGamePlay} />}</>
+    <>
+      {isGameStarted ? (
+        <GamePlay toggle={toggleGamePlay} />
+      ) : (
+        <StartGame toggle={toggleGamePlay} />
+      )}
+    </>
   );
 }
 
