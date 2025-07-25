@@ -26,7 +26,7 @@ function GamePlay({ toggle }) {
     }
 
     setError("");
-    const randomNumber = generateRandomNumber(1, 7);
+    const randomNumber =  generateRandomNumber(1, 7);
 
     setCurrentDice((prev) => randomNumber);
 
