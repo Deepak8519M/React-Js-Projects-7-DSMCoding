@@ -8,6 +8,7 @@ const App = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [filteredData, setFilteredData] = useState(null);
 
   useEffect(() => {
     const fetchFoodData = async () => {
@@ -17,6 +18,7 @@ const App = () => {
         const response = await fetch(BASE_URL);
         const json = await response.json();
         setData(json);
+        setFilteredData(json);
         setLoading(false);
       } catch {
         setError("Unable to Fetch Data");
@@ -29,15 +31,29 @@ const App = () => {
   if (error) return <div>{error}</div>;
   if (loading) return <div>loading...</div>;
 
-  [
-    {
-      name: "Boilded Egg",
-      price: 10,
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      image: "/images/egg.png",
-      type: "breakfast",
-    },
-  ];
+  // [
+  //   {
+  //     name: "Boilded Egg",
+  //     price: 10,
+  //     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+  //     image: "/images/egg.png",
+  //     type: "breakfast",
+  //   },
+  // ];
+
+  const searchFood = (e) => {
+    const searchValue = e.target.value;
+
+    if (searchValue === "") {
+      setFilteredData(null);
+    }
+
+    const filter = data?.filter((food) =>
+      food.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    setFilteredData(filter);
+  };
 
   return (
     <>
@@ -47,7 +63,11 @@ const App = () => {
             <img src="/logo.png" alt="logo" />
           </div>
           <div className="search">
-            <input type="text" placeholder="Search  Food..." />
+            <input
+              onChange={(e) => searchFood(e)}
+              type="text"
+              placeholder="Search  Food..."
+            />
           </div>
         </TopContainer>
         <FilterContainer>
@@ -56,7 +76,7 @@ const App = () => {
           <Button>Lunch</Button>
           <Button>Dinner</Button>
         </FilterContainer>
-        <SearchResult data={data} />
+        <SearchResult data={filteredData} />
       </Container>
     </>
   );
