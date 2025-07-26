@@ -42,6 +42,25 @@ const App = () => {
   //   },
   // ];
 
+  const filterBtns = [
+    {
+      name: "All",
+      type: "all",
+    },
+    {
+      name: "BreakFast",
+      type: "breakfast",
+    },
+    {
+      name: "Lunch",
+      type: "lunch",
+    },
+    {
+      name: "Dinner",
+      type: "dinner",
+    },
+  ];
+
   const searchFood = (e) => {
     const searchValue = e.target.value;
 
@@ -87,10 +106,11 @@ const App = () => {
           </div>
         </TopContainer>
         <FilterContainer>
-          <Button onClick={() => filterFood("all")}>All</Button>
-          <Button onClick={() => filterFood("BreakFast")}>BreakFast</Button>
-          <Button onClick={() => filterFood("Lunch")}>Lunch</Button>
-          <Button onClick={() => filterFood("Dinner")}>Dinner</Button>
+          {filterBtns.map((value) => (
+            <Button key={value.name} onClick={() => filterFood(value.type)}>
+              {value.name}
+            </Button>
+          ))}
         </FilterContainer>
         <SearchResult data={filteredData} />
       </Container>
