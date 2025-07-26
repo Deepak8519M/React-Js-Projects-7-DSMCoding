@@ -1391,3 +1391,170 @@ console.log(user?.profile?.bio); // ✅ undefined (no error!)
 ```
 
 ---
+The reason `max-width: 1100px` **doesn't seem to apply** to your `TopContainer` is because of **how the parent container behaves** and **missing a full-width constraint**. Here's what you need to know:
+
+---
+
+### 🧠 Problem:
+
+Your `TopContainer` has:
+
+```css
+max-width: 1100px;
+margin: 0 auto;
+```
+
+But **it does not have a `width` set**. That means it will only shrink if the content inside it is smaller than 1100px. If the content inside stretches it, it can still grow.
+
+---
+
+### ✅ Solution:
+
+You should **set a full `width: 100%`** in combination with `max-width` like this:
+
+```js
+const TopContainer = styled.section`
+  background-color: #008000;
+  width: 100%;                 /* ✅ This ensures it takes full width of parent */
+  max-width: 1100px;           /* ✅ This limits its growth */
+  margin: 0 auto;              /* ✅ This centers it horizontally */
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  align-items: center;
+
+  .search {
+    input {
+      background-color: transparent;
+      border: 1px solid red;
+      color: white;
+      border-radius: 5px;
+      height: 40px;
+      font-size: 16px;
+      padding: 0 10px;
+    }
+  }
+`;
+```
+
+---
+
+### 🔍 Optional Check:
+
+Ensure that `Container` has no layout-breaking styles, but in your case it seems fine:
+
+```js
+export const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+```
+
+---
+
+### ✅ Final Note:
+
+* Always set `width: 100%` when using `max-width` + `margin: 0 auto` for centering.
+* Without a `width`, the `max-width` doesn't behave as expected because there's no base width to limit.
+
+---
+
+Sure! Let’s walk through this **clearly and simply** so you understand **why `max-width` may not work as expected**, especially in your `TopContainer`.
+
+---
+
+## 🔧 The setup:
+
+```jsx
+const TopContainer = styled.section`
+  background-color: #008000;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  align-items: center;
+```
+
+### ✅ What you **expect**:
+
+That the `TopContainer` section should **not grow beyond 1100px**, and stay **centered** due to `margin: 0 auto`.
+
+---
+
+## 💡 But here's the real reason it **might not appear as expected**:
+
+### 1. **Parent width is 100%**
+
+You have this in your `Container`:
+
+```jsx
+export const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+```
+
+But **`Container` doesn’t have a width** set, so by default it takes `100%` of its parent, which is `<body>`.
+
+➡️ So `Container` spans **full screen width**.
+
+Now, `TopContainer` is a child of that, and you’ve applied `max-width: 1100px`, which means:
+
+* **Its actual width will be `auto`**, unless you give it a `width: 100%`.
+* **It won't expand beyond 1100px**, but it may shrink **much smaller** if its content is smaller and no `width` is defined.
+
+### ✅ To fix it visually:
+
+Add:
+
+```js
+width: 100%;
+```
+
+So the `TopContainer` will try to occupy full width (up to 1100px), and `max-width` will limit it.
+
+---
+
+## ✅ Final CSS recommendation:
+
+```jsx
+const TopContainer = styled.section`
+  background-color: #008000;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  align-items: center;
+`;
+```
+
+---
+
+## 🤔 Summary: What is `max-width` doing?
+
+* `max-width: 1100px` → Means: “Never let this grow beyond 1100px, **even if parent is 2000px wide**.”
+* `width: 100%` → Means: “Fill up **as much space as parent allows** (up to 1100px, if max-width is there).”
+* `margin: 0 auto` → Centers it **horizontally** when there's leftover space on both sides.
+
+---
+
+## 🌟 Visual Example
+
+Let’s say:
+
+* Your screen = 1440px
+* Parent (`Container`) = 1440px
+* Without `width: 100%`, `TopContainer` = fits content (maybe 600px only)
+* With `width: 100%` and `max-width: 1100px`:
+  → It grows to 1100px and centers on the screen.
+
+---
+
