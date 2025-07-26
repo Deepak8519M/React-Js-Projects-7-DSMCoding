@@ -74,7 +74,7 @@ export const Container = styled.div`
 
 const TopContainer = styled.section`
   width: 100%;
-  background-color: #008000;
+  /* background-color: #008000; */
   max-width: 1100px;
   margin: 0 auto;
   min-height: 80px;
@@ -98,11 +98,12 @@ const TopContainer = styled.section`
 
 const FilterContainer = styled.section`
   /* background-color: red; */
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 12px;
   padding-bottom: 10px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 3px auto;
 `;
 
