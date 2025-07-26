@@ -40,7 +40,13 @@ const FoodCardsContainer = styled.section`
 `;
 
 const FoodCards = styled.div`
-  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 32px;
+  column-gap: 24px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
 `;
 const FoodCard = styled.div`
   padding: 10px;
@@ -67,9 +73,10 @@ const FoodCard = styled.div`
   backdrop-filter: blur(20px); /* blur the background behind */
   -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
+  cursor: pointer;
 
   img {
-    width: 120px;
+    width: 160px;
   }
 
   .food-info {

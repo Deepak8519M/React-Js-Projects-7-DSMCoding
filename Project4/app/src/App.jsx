@@ -56,7 +56,6 @@ const App = () => {
           <Button>Lunch</Button>
           <Button>Dinner</Button>
         </FilterContainer>
-
         <SearchResult data={data} />
       </Container>
     </>
@@ -65,15 +64,18 @@ const App = () => {
 
 export default App;
 
-const Container = styled.div`
+export const Container = styled.div`
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   /* background-color: red; */
 `;
 
 const TopContainer = styled.section`
-  /* background-color: #008000; */
-  max-width: 1200px;
+  width: 100%;
+  background-color: #008000;
+  max-width: 1100px;
   margin: 0 auto;
   min-height: 80px;
   display: flex;
