@@ -8,7 +8,7 @@ const App = () => {
 
   const fetchFoodData = async () => {
     const response = await fetch(BASE_URL);
-    const json = response.json();
+    const json = await response.json();
     console.log(json);
   };
 
