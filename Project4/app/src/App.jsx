@@ -133,7 +133,7 @@ const TopContainer = styled.section`
   /* background-color: #008000; */
   max-width: 1100px;
   margin: 0 auto;
-  min-height: 80px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   padding: 16px;
@@ -149,6 +149,12 @@ const TopContainer = styled.section`
       font-size: 16px;
       padding: 0 10px;
     }
+  }
+
+  @media (0 < width<600px) {
+    flex-direction: column;
+    height: 120px;
+    /* background-color: red; */
   }
 `;
 
