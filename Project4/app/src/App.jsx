@@ -73,6 +73,10 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const FoodCardsContainer = styled.section``;
+const FoodCardsContainer = styled.section`
+  height: 100vh;
+  background-image: url("/bg.png");
+  background-size: cover;
+`;
 
 const FoodCard = styled.div``;

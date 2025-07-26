@@ -203,3 +203,13 @@ Imagine you're building a pizza:
 ---
 
 fontFamily: "Urbanist" - font family
+
+---
+
+height: 100vh;
+background-image: url("/bg.png");
+background-size: cover;
+
+here height should be given other wise image will not be visible
+
+---
