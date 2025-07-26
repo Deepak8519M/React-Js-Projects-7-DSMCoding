@@ -33,6 +33,10 @@ export default App;
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   /* background-color: red; */
 `;
 
@@ -61,6 +65,8 @@ const FilterContainer = styled.section`
   display: flex;
   justify-content: center;
   gap: 12px;
+  padding-bottom: 15px;
+  flex-grow: 1;
 `;
 
 const Button = styled.button`
@@ -74,9 +80,11 @@ const Button = styled.button`
 `;
 
 const FoodCardsContainer = styled.section`
-  height: 100vh;
+  height: calc(100vh - 149px);
   background-image: url("/bg.png");
   background-size: cover;
+  margin-top: 20px;
+  width: 100%;
 `;
 
 const FoodCard = styled.div``;
