@@ -152,6 +152,10 @@ const TopContainer = styled.section`
       height: 40px;
       font-size: 16px;
       padding: 0 10px;
+
+      &::placeholder {
+        color: white;
+      }
     }
   }
 
