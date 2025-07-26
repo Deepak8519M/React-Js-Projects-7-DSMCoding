@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
+const BASE_URL = "http://localhost:9000/";
+
 const App = () => {
+  const [data, setData] = useState(null);
+
+  const fetchFoodData = async () => {
+    const response = await fetch(BASE_URL);
+    const json = response.json();
+    console.log(json);
+  };
+
+  fetchFoodData();
+
   return (
     <>
       <Container>
