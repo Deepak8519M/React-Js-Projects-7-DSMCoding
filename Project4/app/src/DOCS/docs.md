@@ -982,3 +982,93 @@ It fails because the data is not ready yet — the fetch is still happening.
 
 ---
 
+This error:
+
+> **"Too many re-renders. React limits the number of renders to prevent an infinite loop."**
+
+…happens when **your component keeps re-rendering endlessly**. React detects this and **throws this error to prevent your browser from freezing or crashing**.
+
+---
+
+## 🔍 Why does this happen?
+
+It happens when **a `state`-changing function like `setState()` is called directly inside the body of a component** — not inside an event, effect (`useEffect`), or callback.
+
+---
+
+### ⚠️ Problematic example:
+
+```jsx
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  setCount(count + 1); // ❌ This runs on every render → infinite loop!
+
+  return <div>{count}</div>;
+};
+```
+
+* When this component renders:
+
+  * It calls `setCount` → which updates state → which triggers a **re-render**
+  * On re-render, it **again calls `setCount`** → again re-render → again `setCount`…
+* 🔁 This cycle continues forever → 🔥 "Too many re-renders" error
+
+---
+
+## ✅ How to fix it?
+
+Wrap state updates inside:
+
+* `useEffect()`
+* an event handler (`onClick`, `onChange`, etc.)
+* conditional logic (so it's not always called)
+
+---
+
+### ✅ Fixed version with `useEffect`:
+
+```jsx
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(1); // only runs once on first render
+  }, []);
+
+  return <div>{count}</div>;
+};
+```
+
+---
+
+### ✅ Fixed version with Button:
+
+```jsx
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+```
+
+---
+
+## 🧠 Concept Behind the Error
+
+React works like this:
+
+1. Renders your component function
+2. Sees the `setState()` → triggers re-render
+3. Runs the component again → again calls `setState()`…
+4. 🔁 This causes an **infinite loop**
+
+React detects this recursion and throws this error to **prevent your app from hanging**.
+
+---
+
