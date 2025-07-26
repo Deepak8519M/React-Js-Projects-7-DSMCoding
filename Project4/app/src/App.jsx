@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchResult from "./components/SearchResult";
 
-const BASE_URL = "http://localhost:9000/";
+export const BASE_URL = "http://localhost:9000";
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -66,17 +66,15 @@ const App = () => {
 export default App;
 
 const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 
   /* background-color: red; */
 `;
 
 const TopContainer = styled.section`
   /* background-color: #008000; */
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: 80px;
   display: flex;
   justify-content: space-between;
@@ -97,14 +95,16 @@ const TopContainer = styled.section`
 `;
 
 const FilterContainer = styled.section`
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   gap: 12px;
-  padding-bottom: 15px;
-  flex-grow: 1;
+  padding-bottom: 10px;
+  max-width: 1200px;
+  margin: 3px auto;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   background: #ff4343;
   border-radius: 5px;
   padding: 6px 12px;
