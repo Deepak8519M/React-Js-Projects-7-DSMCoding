@@ -13,6 +13,16 @@ const App = () => {
             <input type="text" placeholder="Search  Food..." />
           </div>
         </TopContainer>
+        <FilterContainer>
+          <Button>All</Button>
+          <Button>BreakFast</Button>
+          <Button>Lunch</Button>
+          <Button>Dinner</Button>
+        </FilterContainer>
+
+        <FoodCardsContainer>
+          <FoodCard></FoodCard>
+        </FoodCardsContainer>
       </Container>
     </>
   );
@@ -27,8 +37,8 @@ const Container = styled.div`
 `;
 
 const TopContainer = styled.section`
-  background-color: #008000;
-  min-height: 60px;
+  /* background-color: #008000; */
+  min-height: 80px;
   display: flex;
   justify-content: space-between;
   padding: 16px;
@@ -46,3 +56,23 @@ const TopContainer = styled.section`
     }
   }
 `;
+
+const FilterContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+`;
+
+const Button = styled.button`
+  background: #ff4343;
+  border-radius: 5px;
+  padding: 6px 12px;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+`;
+
+const FoodCardsContainer = styled.section``;
+
+const FoodCard = styled.div``;
