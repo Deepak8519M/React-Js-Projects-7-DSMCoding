@@ -4,7 +4,13 @@ import styled from "styled-components";
 const App = () => {
   return (
     <>
-      <MainContainer></MainContainer>
+      <MainContainer>
+        <TopContainer>
+          <div className="logo">
+            <img src="/logo.png" alt="logo" />
+          </div>
+        </TopContainer>
+      </MainContainer>
     </>
   );
 };
@@ -12,3 +18,4 @@ const App = () => {
 export default App;
 
 const MainContainer = styled.div``;
+const TopContainer = styled.section``;
