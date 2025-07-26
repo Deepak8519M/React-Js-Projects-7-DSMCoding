@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchResult = () => {
+const SearchResult = ({ data }) => {
   return (
     <>
       <FoodCardsContainer>
-        <FoodCard></FoodCard>
+        <FoodCards>
+          {data?.map((food) => {
+            <FoodCard key={food.name}>{food.text}</FoodCard>;
+          })}
+        </FoodCards>
       </FoodCardsContainer>
     </>
   );
@@ -21,4 +25,5 @@ const FoodCardsContainer = styled.section`
   width: 100%;
 `;
 
+const FoodCards = styled.div``;
 const FoodCard = styled.div``;
