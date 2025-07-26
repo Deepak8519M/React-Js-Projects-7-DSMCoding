@@ -6,9 +6,9 @@ const SearchResult = ({ data }) => {
     <>
       <FoodCardsContainer>
         <FoodCards>
-          {data?.map((food) => {
-            <FoodCard key={food.name}>{food.text}</FoodCard>;
-          })}
+          {data?.map((food) => (
+            <FoodCard key={food.name}>{food.text}</FoodCard>
+          ))}
         </FoodCards>
       </FoodCardsContainer>
     </>
