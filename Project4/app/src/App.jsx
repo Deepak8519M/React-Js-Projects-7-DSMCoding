@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const App = () => {
   return (
     <>
-      <MainContainer>
+      <Container>
         <TopContainer>
           <div className="logo">
             <img src="/logo.png" alt="logo" />
@@ -14,14 +13,36 @@ const App = () => {
             <input type="text" placeholder="Search  Food..." />
           </div>
         </TopContainer>
-      </MainContainer>
+      </Container>
     </>
   );
 };
 
 export default App;
 
-const MainContainer = styled.div`
-  background-color: #323334;
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  /* background-color: red; */
 `;
-const TopContainer = styled.section``;
+
+const TopContainer = styled.section`
+  background-color: #008000;
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  align-items: center;
+
+  .search {
+    input {
+      background-color: transparent;
+      border: 1px solid red;
+      color: white;
+      border-radius: 5px;
+      height: 40px;
+      font-size: 16px;
+      padding: 0 10px;
+    }
+  }
+`;
