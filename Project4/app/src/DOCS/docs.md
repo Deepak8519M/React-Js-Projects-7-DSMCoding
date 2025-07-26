@@ -1823,4 +1823,89 @@ We use `searchValue === ""` to **prevent showing all data when no input is given
 
 ---
 
+Haha no worries! Let's unbind your brain — I’ll **explain that line step-by-step like I’m talking to a friend who’s tired and just wants clarity**:
 
+---
+
+### ❓What’s going on here?
+
+```js
+background: ${({ isSelected }) => (isSelected ? "#f22f27" : "#f22f27")};
+```
+
+At first glance, you might say:
+
+> "Bro, both the values are the same! Why the heck do we need the ternary (`? :`) if it’s always `#f22f27`?!"
+
+You're 100% right — **this code is redundant**.
+
+---
+
+### 🔍 Let’s break it into parts:
+
+This is **styled-components** syntax — commonly used in React for writing CSS inside JavaScript like this:
+
+```js
+const Button = styled.button`
+  background: ${({ isSelected }) => (isSelected ? "#f22f27" : "#f22f27")};
+`;
+```
+
+It means:
+
+* If `isSelected` is true → use `#f22f27`
+* If false → use `#f22f27`
+
+But… both outcomes are the same, so the condition is useless.
+
+---
+
+### ✅ What should it be instead?
+
+#### 1️⃣ If you always want same color:
+
+```js
+background: #f22f27;
+```
+
+Just write that. No need for logic.
+
+---
+
+#### 2️⃣ If you **intended** different colors (probably a mistake), then maybe you meant:
+
+```js
+background: ${({ isSelected }) => (isSelected ? "#f22f27" : "#f2f2f2")};
+```
+
+* 🔴 When selected → Red-ish (`#f22f27`)
+* ⚪ When not selected → Light gray (`#f2f2f2`)
+
+That would make the button look active or inactive.
+
+---
+
+### 🧠 In summary:
+
+Your brain is fried because:
+
+* This line **has a logic condition but no change in outcome**, so it feels useless.
+* You're expecting *"different state = different color"*, but the code gives same result for both cases.
+
+---
+
+### ✅ Fix it like this:
+
+**If same for both:**
+
+```js
+background: #f22f27;
+```
+
+**If you want to show selected/unselected:**
+
+```js
+background: ${({ isSelected }) => (isSelected ? "#f22f27" : "#ddd")};
+```
+
+---
